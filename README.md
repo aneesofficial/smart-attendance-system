@@ -1,63 +1,78 @@
-# Smart Attendance System
+# Smart Attendance System AI
 
-A professional, production-style Smart Attendance System utilizing an AI Face Recognition model. This project consists of a React (Vite) frontend and a FastAPI (Python) backend.
+## Description
+Smart Attendance System AI is an automated attendance management application that identifies registered students using computer vision face recognition. It is designed for schools, universities, and organizations to verify identity and record attendance via camera feed without manual paper registers.
 
-## Features
-- AI Face Recognition based attendance marking
-- Clean, responsive dashboard
-- Student management
-- Attendance history and analytics
-- System status monitoring
+## Live Demo
+https://github.com/aneesofficial/Smart-Attendance-System-AI
 
-## Technology Stack
-- **Frontend**: React, Vite, Vanilla CSS
-- **Backend**: Python, FastAPI, Uvicorn
-- **AI/CV**: OpenCV, face_recognition, NumPy
-- **Data**: CSV (pandas)
+## Tech Stack
+* Python
+* FastAPI
+* Uvicorn
+* OpenCV
+* face_recognition
+* NumPy
+* Pandas
+* React
+* Vite
+* JavaScript
+* CSS
 
-## Folder Structure
-- `frontend/` - React frontend application.
-- `backend/` - FastAPI backend application.
-- `models/` - Directory for trained AI models (e.g., `encodings.pkl`).
-- `data/` - CSV files containing attendance records.
-- `docs/` - System architecture and debugging documentation.
+## Getting Started
 
-## Installation & Environment Setup
+### 1. Clone the repository
+```bash
+git clone https://github.com/aneesofficial/Smart-Attendance-System-AI.git
+cd Smart-Attendance-System-AI
+```
 
-1. **Clone the repository.**
-2. **Environment Variables**: Copy `.env.example` to `.env` in both the root or specific folders as needed, and configure paths.
-
-### Backend Setup
+### 2. Install backend dependencies
 ```bash
 cd backend
-python -m venv venv
-# Windows: venv\Scripts\activate
-# Mac/Linux: source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Frontend Setup
+### 3. Install frontend dependencies
 ```bash
-cd frontend
+cd ../frontend
 npm install
 ```
 
-## How to Run
+### 4. Run the application
 
-**1. Start the Backend**
+Run the backend server:
 ```bash
 cd backend
 uvicorn main:app --reload --port 8000
 ```
-The backend API will be available at `http://localhost:8000`.
 
-**2. Start the Frontend**
+Run the frontend server in a separate terminal:
 ```bash
 cd frontend
 npm run dev
 ```
-The frontend application will be available at `http://localhost:5173`.
 
-## Connecting the Trained Model
-Place your trained face-recognition model (e.g., `encodings.pkl`) in the `models/` directory.
-Ensure that the `MODEL_PATH` inside the backend configuration points to this file. See `models/README.md` for more details.
+Open http://localhost:5173 in your web browser.
+
+## Environment Variables
+
+Configure these keys in your environment or inside a .env file:
+
+Frontend:
+* VITE_API_URL: http://localhost:8000/api
+
+Backend:
+* FRONTEND_URL: http://localhost:5173
+* MODEL_PATH: ../models/encodings.pkl
+* ATTENDANCE_FILE: ../data/attendance.csv
+
+## Screenshots
+
+![Dashboard Overview](screenshots/dashboard.png)
+
+![Live Face Recognition](screenshots/face-recognition.png)
+
+![Students Management](screenshots/students.png)
+
+![Attendance Records History](screenshots/attendance.png)

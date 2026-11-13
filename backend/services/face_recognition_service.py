@@ -3,7 +3,11 @@ import numpy as np
 import os
 import pickle
 from config import MODEL_PATH
-import face_recognition
+try:
+    import face_recognition
+except BaseException as e:
+    face_recognition = None
+    print(f"Warning: face_recognition could not be imported: {e}")
 
 class FaceRecognitionService:
     def __init__(self):
@@ -56,6 +60,9 @@ class FaceRecognitionService:
         """
         if not self.is_model_loaded:
             return {"status": "error", "message": "Face recognition model is not loaded."}
+
+        if face_recognition is None:
+            return {"status": "error", "message": "Face recognition engine is not initialized."}
 
         try:
             # Convert image bytes to numpy array then to OpenCV format
